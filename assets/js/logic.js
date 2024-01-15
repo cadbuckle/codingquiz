@@ -7,6 +7,7 @@ var endScreenEl = document.getElementById("end-screen");
 var timeEl = document.getElementById("time");
 var finalScoreEl = document.getElementById("final-score");
 var submitEl = document.getElementById("submit");
+var initialEl = document.getElementById("initials");
 
 // define variables
 
@@ -80,12 +81,39 @@ function displayQuestion() {
 function gameEnd() {
   clearInterval(gameTime);
   finalScoreEl.textContent = timeEl.textContent = timeLeft;
+  // display start block in case user wants to play again
   startDivEl.style = "display: block";
+  // hide questions block as no longer required
   questionsEl.style = "display: none";
+  // show endscreen so that user can see final score/time and potentially save.
   endScreenEl.style = "display: block";
 }
 
-// submit button
+// called when submit button pressed
+// if initials entered, records these and score/time in local storage
+function submitScore() {
+  var enteredInitials = initialEl.value.trim();
+  // if initials not empty the store in localstorage
+  var savedScores;
+  var scoresArray = [];
+  if (enteredInitials !== ""){
+    // get current scores from local storage
+    savedScores = localStorage.getItem("wk06-highscores");
+    // parse return value to create array (if not empty)
+    if (savedScores !== null){
+      scoresArray = JSON.parse(savedScores);
+    }
+    // append current details
+    var scoreText = enteredInitials+" - "+timeLeft;
+    scoresArray.push(scoreText);
+    // save to local storage
+    localStorage.setItem("wk06-highscores",JSON.stringify(scoresArray));
+  }
+}
+
+
+// listener for submit button
+submitEl.addEventListener("click", submitScore);
 
 // Listen for the start button to be pressed to call startTheGame function
 startButtonEl.addEventListener("click", startTheGame);
