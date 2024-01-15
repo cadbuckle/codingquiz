@@ -20,10 +20,15 @@ var liEls;
 // startTheGame is called when start button clicked
 function startTheGame(event) {
   event.preventDefault();
+  currentQuestion = 0;
+
   // hide the start screen
   startDivEl.style = "display: none";
   // display the question area
   questionsEl.style = "display: block";
+  // hide end block
+  endScreenEl.style = "display: none";
+  initialEl.value = "";
   // start the timer
   goTimer();
   // display first question
@@ -104,7 +109,7 @@ function submitScore() {
       scoresArray = JSON.parse(savedScores);
     }
     // append current details
-    var scoreText = enteredInitials+" - "+timeLeft;
+    var scoreText = enteredInitials+" : "+timeLeft;
     scoresArray.push(scoreText);
     // save to local storage
     localStorage.setItem("wk06-highscores",JSON.stringify(scoresArray));
