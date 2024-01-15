@@ -21,6 +21,7 @@ var liEls;
 function startTheGame(event) {
   event.preventDefault();
   currentQuestion = 0;
+  timeLeft = 60;
 
   // hide the start screen
   startDivEl.style = "display: none";
@@ -85,6 +86,9 @@ function displayQuestion() {
 // gameEnd event
 function gameEnd() {
   clearInterval(gameTime);
+  // if time left < 0 then force to 0
+  if (timeLeft < 0) {timeLeft = 0;}
+  // refresh time left
   finalScoreEl.textContent = timeEl.textContent = timeLeft;
   // display start block in case user wants to play again
   startDivEl.style = "display: block";
