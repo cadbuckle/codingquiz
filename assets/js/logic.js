@@ -117,6 +117,8 @@ function submitScore() {
     scoresArray.push(scoreText);
     // save to local storage
     localStorage.setItem("wk06-highscores",JSON.stringify(scoresArray));
+    // opens highscores page in current tab
+    window.open("highscores.html", "_self");
   }
 }
 

@@ -29,9 +29,9 @@ After the page is displayed, clicking the "Start Quiz" button will display the f
 The user has to select one option from each question.
 If an incorrect answer is selected, 10 seconds are taken off the time and the next question is displayed.
 When all the questions have been answered, or the time runs out, the user will be displayed their final time (score).
-If the user wishes to record their time, they enter up to 3 initials and click the Submit button.
+If the user wishes to record their time, they enter their initials and click the Submit button.
 ### Highscores
-The Highscores can be viewed by clicking the "View Highscores" clink in the top left hand corner.
+The Highscores can be viewed by clicking the "View Highscores" link in the top left hand corner.
 This will display all the scores that have been saved using this browser.
 Selecting the Clear Highscores button will reset all the data.
 The Go Back button will return to the previous screen.
@@ -44,7 +44,7 @@ The Go Back button will return to the previous screen.
 ### End of quiz screen
 <img alt="end of quiz screen" src="./assets/images/03-End_of_quiz.png" width=75%></img>
 ### Highscores screen
-<img alt="Quiz highscores" src="./images/Screen-03-InvalidNumberOfCharacters.png" width=75%></img>
+<img alt="Quiz highscores" src="./assets/images/04-Highscores.png" width=75%></img>
 
 ## License
 
